@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mox-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      application: moxapp
+  template:
+    metadata:
+      labels:
+        application: moxapp
+    spec:
+      containers:
+      - name: mox-app-container
+        image: nousernamesavailable/moxnodeapp:0.0.2
+        ports:
+        - containerPort: 3040
